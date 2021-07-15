@@ -1,0 +1,41 @@
+:host{
+    display: flex;
+    justify-content: center;
+    margin: 190px 0px
+}
+
+::ng-deep body{
+    background-image:  linear-gradient(to right,white,blue);
+}
+
+.example-card {
+    max-width: 400px;
+}
+  
+.example-header-image {
+    background-size: cover;
+}
+
+example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.alignButtonCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.container-logo{
+    display: flex;
+    justify-content: center;
+
+    img{ 
+        width: 70px
+    }
+}

@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+    <mat-card-title class="container-logo">
+      <img  src= "../../assets/img/logo.png" alt="logo do site">
+    </mat-card-title>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="loginFrom">
+        <mat-form-field class="example-full-width">
+          <mat-label>Usuário</mat-label>
+          <input type="email" matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="alignButtonCenter">
+      <button mat-button (click)="login()">Logar</button>
+    </mat-card-actions>
+  </mat-card>
