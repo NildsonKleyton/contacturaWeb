@@ -11,11 +11,13 @@ import { FormUsuariosComponent } from './form-usuarios/form-usuarios.component';
 import { FormContatosComponent } from './form-contatos/form-contatos.component';
 import { NotFoundComponent } from './sharedComponents/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './sharedComponents/navbar/navbar.component';
+
 //importes do material debugging
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MatInputModule} from '@angular/material/input';
     ListaUsuariosComponent,
     FormUsuariosComponent,
     FormContatosComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     AppRoutingModule,
@@ -35,7 +38,8 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

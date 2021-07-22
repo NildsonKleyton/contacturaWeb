@@ -14,7 +14,7 @@ const routes: Routes = [
 {path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [AuthGuard]},
 {path: 'cadastro-contatos', component: ListaContatosComponent, canActivate: [AuthGuard]},
 {path: 'cadastro-usuarios', component: ListaUsuariosComponent, canActivate: [AuthAdminGuard]},
-{path: '***', component: NotFoundComponent}
+{path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
