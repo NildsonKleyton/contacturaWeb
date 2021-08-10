@@ -29,14 +29,14 @@
             </thead>
             <!-- tbody -->
             <tbody>
-                <tr *ngFor="let contact of contactsList">
-                    <td data-label="Nome">{{contact.name}}</td>
-                    <td data-label="Email">{{contact.email}}</td>
-                    <td data-label="Fone">{{contact.phone}}</td>
+                <tr *ngFor="let contato of contactsList">
+                    <td data-label="Nome">{{contato.name}}</td>
+                    <td data-label="Email">{{contato.email}}</td>
+                    <td data-label="Fone">{{contato.phone}}</td>
                     <td>    
                         <div class="container_buttons_table">
-                            <mat-icon (click)="deleteContacts(contact)">delete</mat-icon>
-                            <mat-icon (click)="editContacts(contact)">edit</mat-icon>
+                            <mat-icon (click)="deleteContacts(contato)">delete</mat-icon>
+                            <mat-icon (click)="editContacts(contato)">edit</mat-icon>
                         </div>
                     </td>
                 </tr>

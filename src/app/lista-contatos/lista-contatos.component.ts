@@ -33,13 +33,13 @@ export class ListaContatosComponent implements OnInit {
     console.log(this.contactsList);//para ver no console
   }
 
-  editContacts(contatos: Contacts) {
-    console.log('edit esta funcionando', contatos);
-    this.contatosService.getContactsList(contatos);
+  editContacts(contato: Contacts) {
+    console.log('edit esta funcionando', contato);
+    this.contatosService.getContactsList(contato);
     this.router.navigate(['/cadastro-contatos']);
   }
 
-  deleteContacts(contatos: Contacts) {
+  deleteContacts(contato: Contacts) {
     Swal.fire({
       title: 'Você tem certeza?',
       text: 'Deseja mesmo deletar?',

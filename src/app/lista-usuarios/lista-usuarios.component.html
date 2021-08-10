@@ -19,6 +19,7 @@
             <!-- thead-->
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Fone</th>
@@ -28,11 +29,12 @@
             </thead>
             <!-- tbody -->
             <tbody>
-                <tr *ngFor="let contact of usuariosList">
-                    <td data-label="Email">{{contact.email}}</td>
-                    <td data-label="Senha">{{contact.password}}</td>
-                    <td data-label="Nome">{{contact.name}}</td>
-                    <td data-label="Admin">{{contact.admin}}</td>
+                <tr *ngFor="let usuario of usuariosList">
+                    <td data-label="ID">{{usuario.id}}</td>
+                    <td data-label="Email">{{usuario.email}}</td>
+                    <td data-label="Senha">{{usuario.password}}</td>
+                    <td data-label="Nome">{{usuario.name}}</td>
+                    <td data-label="Admin">{{usuario.admin}}</td>
                     <td>
                         <div class="container_buttons_table">
                             <mat-icon (click)="deleteUsuarios(usuario)">delete</mat-icon>

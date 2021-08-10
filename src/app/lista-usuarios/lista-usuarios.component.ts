@@ -34,13 +34,13 @@ export class ListaUsuariosComponent implements OnInit {
     console.log(this.usuariosList);//para ver no console
   }
 
-  editUsuarios(usuarios: User){
-    console.log('edit esta funcionando', usuarios);
-    this.usuariosService.getUserList(usuarios);
+  editUsuarios(usuario: User){
+    console.log('edit esta funcionando', usuario);
+    this.usuariosService.getUserList(usuario);
     this.router.navigate(['/cadastro-contatos']);
   }
 
-  deleteUsuarios(usuarios: User){
+  deleteUsuarios(usuario: User){
     Swal.fire({
       title: 'Você tem certeza?',
       text: 'Deseja mesmo deletar?',
