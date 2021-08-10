@@ -1,15 +1,16 @@
 *{
-    box-sizing: border-box;
+    box-sizing: border-box; //cria uma box deixando uma borda colado nos cantos
     padding: 0;
     margin: 0;
 }
 
 .navbar{
-    padding-bottom: 10px;
+    padding-bottom: 10px; //separa o navbar do componente de baixo
     background-color: #f8f9fA;
 }
 
-.navbar-toogle{
+
+.navbar-toggle{
     position: relative;
     top:10px;
     float: right;
@@ -19,8 +20,8 @@
 }
 
 .main-nav{
-    list-style-type: nome;
-    display: nome;
+    list-style-type: none;
+    display: none;
 
     li{ 
         text-align: center;
@@ -30,6 +31,8 @@
 
 .nav-links{
     margin-left: 40px;
+    color: #000000;
+    text-decoration: none;
 }
 
 .active{
@@ -38,7 +41,7 @@
 
 .logo{
     margin-left: 10px;
-
+    
     img {
         width: 40px;
     }
@@ -46,7 +49,7 @@
 
 //Medida query para desktop com o minimo de 769px
 
-@media screen and (max-width:769px) {
+@media screen and (min-width: 769px) {
     .navbar{
         display:flex;
         justify-content: space-between;
@@ -67,13 +70,13 @@
 
     }
 
-    .navbar-toogle{
-        display: nome;
+    .navbar-toggle{
+        display: none;
     }
 
     .nav-links{
         color: #000000;
-        text-decoration: nome;
+        text-decoration: none;
     }
 
     .nav-links:hover{
