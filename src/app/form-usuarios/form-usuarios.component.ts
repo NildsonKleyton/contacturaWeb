@@ -26,9 +26,9 @@ export class FormUsuariosComponent implements OnInit {
       if (edit !== null) {
         console.log(edit, 'valor do edit');
         this.formUsuario.get('email').setValue(edit.email);
-        this.formUsuario.get('password').setValue(edit.password);
-        this.formUsuario.get('username').setValue(edit.username);
-        this.formUsuario.get('admin').setValue(edit.admin);
+        // this.formUsuario.get('password').setValue(edit.password);
+        // this.formUsuario.get('username').setValue(edit.username);
+        // this.formUsuario.get('admin').setValue(edit.admin);
       }
     });
   }

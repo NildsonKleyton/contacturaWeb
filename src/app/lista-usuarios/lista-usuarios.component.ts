@@ -36,7 +36,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   editUsuarios(usuario: User){
     console.log('edit esta funcionando', usuario);
-    this.usuariosService.getUserList(usuario);
+    // this.usuariosService.getUserList(usuario);
     this.router.navigate(['/cadastro-contatos']);
   }
 
