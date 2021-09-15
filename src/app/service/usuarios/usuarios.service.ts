@@ -4,7 +4,6 @@ import {Authentication, StorageInfo, User } from 'src/app/models/user'
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import{map} from 'rxjs/operators';
-// import { Contacts } from 'src/app/models/contacts';
 
 @Injectable({
   providedIn: 'root'
@@ -17,19 +16,11 @@ export class UsuariosService {
       console.log ('Teste front_end serviço');
   }
 
-  // getContactsList(contatos: Contacts){
-  //   this.dataEdit.next(contatos);
-  // }
-  getUsersList(usuarios:User){
-    this.dataEdit.next(usuarios);
-  }
-  
   api_url = environment.api_url;
 
   authentication(authentication: Authentication){
-    const headers = new HttpHeaders({Authentication: 'Basic '
-    + btoa(authentication.username + ':' +authentication.password)});
-    return this.http.post(this.api_url + 'user/login', {headers}).pipe(
+    const headers = new HttpHeaders({Authentication: 'Basic ' + btoa(authentication.username + ':' + authentication.password)});
+    return this.http.get(this.api_url + 'user/login', {headers}).pipe(
       map(
         authData => {
 
@@ -43,6 +34,10 @@ export class UsuariosService {
         }       
       ) 
     )
+  }
+
+  getUsersList(usuarios:User){
+    this.dataEdit.next(usuarios);
   }
 
 }
