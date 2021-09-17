@@ -7,10 +7,10 @@
 .container_buttons{
     float: right;
     margin: 20px 20px 10px 0px;
+
     button{
         margin-left: 15px;
     }
-
 }
 
 table{
@@ -24,7 +24,7 @@ table{
 
 table tr{
     background-color: #f8f8f8;
-    border:1px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 thead tr{
@@ -34,8 +34,8 @@ thead tr{
 
 table th,
 table td{
-    padding: .625em;
-    text-align: center;
+padding: .625em;
+text-align: center;
 }
 
 table th{
@@ -48,5 +48,4 @@ table th{
     display: flex;
     justify-content: space-evenly;
     cursor: pointer;
-
 }

@@ -1,14 +1,11 @@
-import { Component, OnInit, OnChanges  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-
-export class NavbarComponent implements OnInit  {
+export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -19,9 +16,8 @@ export class NavbarComponent implements OnInit  {
   putEventsMenu(){
     const menuDesktop = document.getElementById('menu-desktop');
     const menuMobile = document.getElementById('menu-mobile');
-    menuMobile.addEventListener('click', function(){ 
-      menuDesktop.classList.toggle('active')
-      console.log(" teste de menu Mobile")
+    menuMobile.addEventListener('click', function(){
+      menuDesktop.classList.toggle('active');
     });
   }
 
@@ -32,4 +28,5 @@ export class NavbarComponent implements OnInit  {
     localStorage.removeItem('password');
     this.router.navigate(['/login']);
   }
+
 }

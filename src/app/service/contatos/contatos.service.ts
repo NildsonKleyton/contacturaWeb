@@ -5,14 +5,12 @@ import { Contacts } from 'src/app/models/contacts';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class ContatosService{
-
-  api_url = environment.api_url;  
-  private dataEdit =new BehaviorSubject<Contacts>(null);
+export class ContatosService {
+  api_url = environment.api_url;
+  private dataEdit = new BehaviorSubject<Contacts>(null);
   botaoEdit = this.dataEdit.asObservable();
   username = localStorage.getItem('username');
   password = localStorage.getItem('password');
@@ -24,14 +22,14 @@ export class ContatosService{
   }
 
   getContacts(){
-    const headers = new HttpHeaders({Authentication:'Basic ' + btoa(this.username + ':' + this.password)});
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.username + ':' + this.password)});
     return this.http.get<Contacts[]>(this.api_url + 'contactura', {headers}).pipe(
       map(
-        contactData =>{
-          if(contactData){
+        contactData => {
+          if (contactData){
             return contactData;
           }else{
-            return[];
+            return [];
           }
         }
       )
@@ -46,11 +44,11 @@ export class ContatosService{
           if(contactData){
             return contactData;
           }else{
-            return[];
+            return [];
           }
         }
       )
-    )
+    );
   }
 
   deleteContacts(id: number){

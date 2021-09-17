@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Authentication, StorageInfo, User } from 'src/app/models/user'
+import { Authentication, StorageInfo, User } from 'src/app/models/user';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import{map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,8 @@ export class UsuariosService {
   api_url = environment.api_url;
 
   authentication(authentication: Authentication){
-    const headers = new HttpHeaders({Authentication: 'Basic ' + btoa(authentication.username + ':' + authentication.password)});
+    const headers = new HttpHeaders ({ Authorization: 'Basic ' 
+    + btoa(authentication.username + ':' + authentication.password)});
     return this.http.get(this.api_url + 'user/login', {headers}).pipe(
       map(
         authData => {
@@ -29,11 +30,11 @@ export class UsuariosService {
             token: authData[1]
           }
 
-          console.log (storageInformation);
+          console.log(storageInformation);
           return storageInformation;
         }       
       ) 
-    )
+    );
   }
 
   getUsersList(usuarios:User){

@@ -5,7 +5,6 @@
         <h1>Cadastro novo Contatos</h1>
     </div>
 </section>
-
 <section>
     <form [formGroup]="formContatos">
         <div class="grid-container">
@@ -14,17 +13,17 @@
                 <input formControlName="name" type="text" name="nome">
             </div>
             <div>
-                <span>Fone:</span>
-                <input formControlName="phone" type="tel" name="phone">
+                <span>Telefone:</span>
+                <input formControlName="phone" type="text" name="phone">
             </div>
         </div>
-        <div class="grid-container-email">
-            <div> 
-                <span>E-mail:</span><br>
+        <div class="grid_container_email">
+            <div>
+                <span>Email:</span>
                 <input formControlName="email" type="email" name="email">
             </div>
             <div>
-                <button mat-raised-button color="primary" (click)="save()">Salvar Contatos</button>
+                <button mat-raised-button color="primary" (click)="validation()">Salvar Contato</button>
             </div>
         </div>
     </form>

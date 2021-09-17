@@ -1,20 +1,22 @@
 <nav class="navbar">
 
-  <!--menu responsivo mobile -->
-  <span id="menu-mobile" class="navbar-toggle">
-    <mat-icon>menu</mat-icon>
+  <!-- menu responsivo mobile -->
+  <span id="menu-mobile" class="navbar-toogle">
+      <mat-icon>menu</mat-icon>
   </span>
-  <span class="logo"> <img src="../../../assets/img/logo.png"> </span>
-  <!--menu responsivo desktop -->
-    <ul id="menu-desktop" class="main-nav">
+
+  <!-- menu para desktop -->
+  <span class="logo"><img src="../../../assets/img/logo.png"></span>
+
+  <ul id="menu-desktop" class="main-nav" >
       <li>
-        <a routerLink="/lista-contatos" class="nav-links">Contatos</a>
+          <a routerLink="/lista-contatos" class="nav-links">Contatos</a>
       </li>
       <li>
-        <a routerLink="/lista-usuarios" class="nav-links">Usuários</a>
+          <a routerLink="/lista-usuarios" class="nav-links">Usuários</a>
       </li>
       <li>
-        <a routerLink="" class="nav-links" (click)="logout()">Logout</a>
+          <a class="nav-links logout" (click)="logout()">Logout</a>
       </li>
-    </ul>
-  </nav>
+  </ul>
+</nav>
