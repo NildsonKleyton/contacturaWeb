@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
-<!-- titulo do lista de usuário-->
+<!-- <app-navbar></app-navbar> -->
+<!-- titulo do lista de usuário -->
 <section>
     <div class="container_title">
         <h1>Usuário</h1>
@@ -19,10 +19,9 @@
             <!-- thead-->
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Fone</th>
+                    <th scope="col">Senha</th>
                     <th scope="col">Admin</th>
                     <th>menu</th>
                 </tr>
@@ -30,10 +29,9 @@
             <!-- tbody -->
             <tbody>
                 <tr *ngFor="let usuario of usuariosList">
-                    <td data-label="ID">{{usuario.id}}</td>
+                    <td data-label="Nome">{{usuario.name}}</td>
                     <td data-label="Email">{{usuario.email}}</td>
                     <td data-label="Senha">{{usuario.password}}</td>
-                    <td data-label="Nome">{{usuario.name}}</td>
                     <td data-label="Admin">{{usuario.admin}}</td>
                     <td>
                         <div class="container_buttons_table">

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Contacts } from 'src/app/models/contacts';
+import { Authentication, StorageInfo } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
@@ -19,6 +20,25 @@ export class ContatosService {
   
   getContactsList(contatos: Contacts){
     this.dataEdit.next(contatos);
+  }
+  
+  authentication(authentication: Authentication){
+    const headers = new HttpHeaders ({ Authorization: 'Basic ' 
+    + btoa(authentication.username + ':' + authentication.password)});
+    return this.http.get(this.api_url + 'user/login', {headers}).pipe(
+      map(
+        authData => {
+
+          let storageInformation: StorageInfo = {
+            admin: authData[0],
+            token: authData[1]
+          }
+
+          console.log(storageInformation);
+          return storageInformation;
+        }       
+      ) 
+    );
   }
 
   getContacts(){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl , FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { User } from '../models/user';
 import { UsuariosService } from '../service/usuarios/usuarios.service';
 
 @Component({
@@ -39,7 +40,7 @@ export class FormUsuariosComponent implements OnInit {
         title: 'Eeeeeba...',
         text: 'Contato criada com sucesso!'
       });
-      this.router.navigate(['/lista-contatos']);
+      this.router.navigate(['/lista-usuarios']);
     } else{
       Swal.fire({
         icon: 'error',
@@ -48,5 +49,47 @@ export class FormUsuariosComponent implements OnInit {
       })
     }
   }
+  edit(usuario: User){
+    usuario.username =  this.formUsuario.get('username').value;
+    usuario.email = this.formUsuario.get('email').value;
+    usuario.password =  this.formUsuario.get('password').value;
 
+    this.usuariosService.updateUsuario(usuario).subscribe(
+      data => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Eeeeeba..',
+          text: 'Contato editado com sucesso!'
+        });
+        this.router.navigate(['/lista-contatos']);
+        },
+        error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ooops..',
+            text: 'Erro ao editar contato!'
+          });
+        }
+    );
+  }
+
+  create(){
+    this.usuariosService.createUsuario(this.formUsuario.value).subscribe(
+      data => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Eeeeeba..',
+          text: 'Contato criado com sucesso!'
+        });
+        this.router.navigate(['/lista-contatos']);
+        },
+        error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ooops..',
+            text: 'Erro ao criar contato!'
+          });
+        }
+    );
+  }
 }
