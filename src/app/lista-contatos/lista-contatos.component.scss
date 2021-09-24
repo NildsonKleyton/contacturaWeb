@@ -4,14 +4,6 @@
     justify-content: center;
 }
 
-.container_buttons{
-    float: right;
-    margin: 20px 20px 10px 0px;
-
-    button{
-        margin-left: 15px;
-    }
-}
 
 table{
     border: 1px solid #000;
@@ -32,8 +24,7 @@ thead tr{
     color: #fff;
 }
 
-table th,
-table td{
+table th,table td{
 padding: .625em;
 text-align: center;
 }
@@ -44,8 +35,21 @@ table th{
     text-transform: uppercase;
 }
 
+.container_buttons{
+    float: right;
+    margin: 20px 20px 10px 0px;
+
+    button{
+        margin-left: 15px;
+    }
+}
+
 .container_buttons_table{
     display: flex;
     justify-content: space-evenly;
     cursor: pointer;
+}
+
+.example-full-width {
+    margin-left: 50px;
 }

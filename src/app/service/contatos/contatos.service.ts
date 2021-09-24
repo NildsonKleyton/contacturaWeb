@@ -22,25 +22,6 @@ export class ContatosService {
     this.dataEdit.next(contatos);
   }
   
-  authentication(authentication: Authentication){
-    const headers = new HttpHeaders ({ Authorization: 'Basic ' 
-    + btoa(authentication.username + ':' + authentication.password)});
-    return this.http.get(this.api_url + 'user/login', {headers}).pipe(
-      map(
-        authData => {
-
-          let storageInformation: StorageInfo = {
-            admin: authData[0],
-            token: authData[1]
-          }
-
-          console.log(storageInformation);
-          return storageInformation;
-        }       
-      ) 
-    );
-  }
-
   getContacts(){
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.username + ':' + this.password)});
     return this.http.get<Contacts[]>(this.api_url + 'contactura', {headers}).pipe(
@@ -100,6 +81,25 @@ export class ContatosService {
 
   findContactById(){
     console.log('desafio para vocês');
+  }
+  
+  authentication(authentication: Authentication){
+    const headers = new HttpHeaders ({ Authorization: 'Basic ' 
+    + btoa(authentication.username + ':' + authentication.password)});
+    return this.http.get(this.api_url + 'user/login', {headers}).pipe(
+      map(
+        authData => {
+
+          let storageInformation: StorageInfo = {
+            admin: authData[0],
+            token: authData[1]
+          }
+
+          console.log(storageInformation);
+          return storageInformation;
+        }       
+      ) 
+    );
   }
 
 }

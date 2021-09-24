@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -12,14 +13,16 @@ import { UsuariosService } from '../service/usuarios/usuarios.service';
 export class ListaUsuariosComponent implements OnInit {
 
   usuariosList: User[];
+
+  search;
   // collection = {count: 10, data: []};
-  constructor(public usuariosService: UsuariosService, private router: Router ) { }
+  constructor(public usuariosService: UsuariosService, private router: Router) { }
 
   ngOnInit(): void {
     // this.populateUser();
     this.getUsuarios();
   }
-  
+
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe(
       data => {
@@ -32,7 +35,7 @@ export class ListaUsuariosComponent implements OnInit {
       }
     );
   }
-  
+
   //metodo para preencher os usuário com dados mocados
   // populateUser(){
   //   for (var i = 0; i < this.collection.count; i++) {
@@ -48,13 +51,27 @@ export class ListaUsuariosComponent implements OnInit {
   //   console.log(this.usuariosList);//para ver no console
   // }
 
-  editUsuarios(usuario: User){
+  // refresh() {
+  //   this.router.navigate(['/cadastro-contatos'])
+  //   .then(() => {
+  //     window.location.reload();
+  //   })
+  // }
+
+  // refresh2() {
+  //   this.router.navigate(['/cadastro-usuarios'])
+  //   .then(() => {
+  //     window.location.reload();
+  //   })
+  // }
+
+  editUsuarios(usuario: User) {
     console.log('edit esta funcionando', usuario);
     this.usuariosService.getUsersList(usuario);
     this.router.navigate(['/cadastro-usuarios']);
   }
 
-  deleteUsuarios(usuario: User){
+  deleteUsuarios(usuario: User) {
     Swal.fire({
       title: 'Você tem certeza?',
       text: 'Deseja mesmo deletar?',
@@ -64,10 +81,15 @@ export class ListaUsuariosComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
-    }).then((result)=>{
-      if (result.isConfirmed){
-        Swal.fire(
-          'Deletado com sucesso!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usuariosService.deleteUsuario(usuario.id).subscribe(
+          data => {
+            Swal.fire(
+              String(data),
+            );
+            this.getUsuarios();
+          }
         );
       }
     });

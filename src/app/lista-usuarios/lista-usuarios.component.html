@@ -7,6 +7,12 @@
 </section>
 <!-- Botão de adicionar usuário-->
 <section>
+    <mat-form-field class="example-full-width">
+        <span matPrefix> </span>
+        <input type="text" matInput placeholder="Pesquisar" name= "search" [(ngModel)]= "search">
+        <button for="search" matSuffix mat-button><mat-icon >search</mat-icon></button>
+    </mat-form-field>
+    
     <div class="container_buttons">
         <button routerLink="/cadastro-contatos" mat-raised-button color="primary">Criar Contato</button>
         <button routerLink="/cadastro-usuarios" mat-raised-button color="primary">Criar Usuária</button>
@@ -30,7 +36,7 @@
             <tbody>
                 <tr *ngFor="let usuario of usuariosList">
                     <td data-label="Nome">{{usuario.name}}</td>
-                    <td data-label="Email">{{usuario.email}}</td>
+                    <td data-label="Email">{{usuario.username}}</td>
                     <td data-label="Senha">{{usuario.password}}</td>
                     <td data-label="Admin">{{usuario.admin}}</td>
                     <td>

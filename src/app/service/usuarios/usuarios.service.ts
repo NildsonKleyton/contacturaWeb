@@ -5,11 +5,15 @@ import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
+
   api_url = environment.api_url;
+  
   private dataEdit =new BehaviorSubject<User>(null);
   botaoEdit = this.dataEdit.asObservable();
   username = localStorage.getItem('username');

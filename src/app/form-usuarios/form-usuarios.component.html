@@ -11,7 +11,7 @@
         <div class="grid-container">
             <div> 
                 <span>E-mail:</span>
-                <input formControlName="email" type="email" name="email">
+                <input formControlName="username" type="email" name="username">
             </div>
             <div>
                 <span>Senha:</span>
@@ -19,7 +19,7 @@
             </div>
             <div>
                 <span>Nome:</span>
-                <input formControlName="name" type="text" name="nome">
+                <input formControlName="name" type="text" name="name">
             </div>
             <div class="admin"> 
                 <span>Administrador?
@@ -28,7 +28,7 @@
         </div>
         <div class="grid-container-email">
             <div>
-                <button mat-raised-button color="primary" (click)="save()">Salvar Usuário</button>
+                <button mat-raised-button color="primary" (click)="validation()">Salvar Usuário</button>
             </div>
         </div>
     </form>

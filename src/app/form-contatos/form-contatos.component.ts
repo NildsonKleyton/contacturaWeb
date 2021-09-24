@@ -13,6 +13,7 @@ import { ContatosService } from '../service/contatos/contatos.service';
 export class FormContatosComponent implements OnInit {
 
   formContatos = new FormGroup({
+    id: new FormControl(''),
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required])
@@ -23,8 +24,8 @@ export class FormContatosComponent implements OnInit {
   constructor(private router: Router, public contatosService: ContatosService) { }
 
   ngOnInit(): void {
-    this.contatosService.botaoEdit.subscribe( edit => {
-      if (edit !== null){
+    this.contatosService.botaoEdit.subscribe(edit => {
+      if (edit !== null) {
         this.contact = edit;
         this.formContatos.get('name').setValue(edit.name);
         this.formContatos.get('phone').setValue(edit.phone);
@@ -34,28 +35,28 @@ export class FormContatosComponent implements OnInit {
     });
   }
 
-  validation(){
+  validation() {
     console.log('xablau');
-    if (this.formContatos.valid){
-      if (this.contact){
+    if (this.formContatos.valid) {
+      if (this.contact) {
         this.edit(this.contact);
-      }else{
+      } else {
         this.create();
       }
-    }else{
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Ooooops..',
         text: 'Cadastro não realizado,' +
-        'preencha corretamente todos os campos'
+          'preencha corretamente todos os campos'
       });
     }
   }
 
-  edit(contact: Contacts){
-    contact.name =  this.formContatos.get('name').value;
+  edit(contact: Contacts) {
+    contact.name = this.formContatos.get('name').value;
     contact.phone = this.formContatos.get('phone').value;
-    contact.email =  this.formContatos.get('email').value;
+    contact.email = this.formContatos.get('email').value;
     this.contatosService.updateContact(contact).subscribe(
       data => {
         Swal.fire({
@@ -64,18 +65,18 @@ export class FormContatosComponent implements OnInit {
           text: 'Contato editado com sucesso!'
         });
         this.router.navigate(['/lista-contatos']);
-        },
-        error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Ooops..',
-            text: 'Erro ao editar contato!'
-          });
-        }
+      },
+      error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Ooops..',
+          text: 'Erro ao editar contato!'
+        });
+      }
     );
   }
 
-  create(){
+  create() {
     this.contatosService.createContact(this.formContatos.value).subscribe(
       data => {
         Swal.fire({
@@ -84,14 +85,14 @@ export class FormContatosComponent implements OnInit {
           text: 'Contato criado com sucesso!'
         });
         this.router.navigate(['/lista-contatos']);
-        },
-        error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Ooops..',
-            text: 'Erro ao criar contato!'
-          });
-        }
+      },
+      error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Ooops..',
+          text: 'Erro ao criar contato!'
+        });
+      }
     );
   }
 }

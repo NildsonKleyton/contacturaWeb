@@ -10,20 +10,22 @@
         <div class="grid-container">
             <div>
                 <span>Nome:</span>
-                <input formControlName="name" type="text" name="nome">
+                <input formControlName="name" type="text" name="name">
             </div>
             <div>
                 <span>Telefone:</span>
                 <input formControlName="phone" type="text" name="phone">
             </div>
         </div>
-        <div class="grid_container_email">
+        <div class="grid-container-email">
             <div>
                 <span>Email:</span>
                 <input formControlName="email" type="email" name="email">
             </div>
+        </div>
+        <div class="grid-container-email">
             <div>
-                <button mat-raised-button color="primary" (click)="validation()">Salvar Contato</button>
+                <button mat-raised-button color="primary"(click)="validation()">Salvar Contato</button>
             </div>
         </div>
     </form>

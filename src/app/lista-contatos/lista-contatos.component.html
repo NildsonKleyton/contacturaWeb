@@ -7,6 +7,13 @@
 </section>
 <!-- Botao de adicionar contato -->
 <section>
+
+    <mat-form-field class="example-full-width">
+        <span matPrefix> </span>
+        <input type="text" matInput placeholder="Pesquisar" name="search" [(ngModel)]="search">
+        <button for="search" matSuffix mat-button><mat-icon>search</mat-icon></button>
+    </mat-form-field>
+    
     <div class="container_buttons">
         <button routerLink="/cadastro-contatos" mat-raised-button color="primary">Criar Contato</button>
         <button routerLink="/cadastro-usuarios" mat-raised-button color="primary">Criar Usuária</button>
@@ -31,6 +38,7 @@
                     <td data-label="Nome">{{contact.name}}</td>
                     <td data-label="Email">{{contact.email}}</td>
                     <td data-label="Fone">{{contact.phone}}</td>
+
                     <td><div class="container_buttons_table">
                         <mat-icon (click)="deleteContacts(contact)">delete</mat-icon>
                         <mat-icon (click)="editContatos(contact)">edit</mat-icon>

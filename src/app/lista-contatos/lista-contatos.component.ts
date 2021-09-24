@@ -12,6 +12,8 @@ import { ContatosService } from '../service/contatos/contatos.service';
 export class ListaContatosComponent implements OnInit {
 
   contactsList: Contacts[];
+
+  search;
   // collection = {count: 10, data: []};
   constructor(public contatosService: ContatosService, private router: Router) { }
 
